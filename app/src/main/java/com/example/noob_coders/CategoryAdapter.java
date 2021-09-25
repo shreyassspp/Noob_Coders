@@ -18,10 +18,10 @@ public class CategoryAdapter extends FragmentStateAdapter {
             return new Counselling();
         }
         else if (position==1){
-            return new Community();
+            return new CommunityFragment();
         }
         else {
-            return new Projects();
+            return new ProjectsFragment();
         }
     }
 
