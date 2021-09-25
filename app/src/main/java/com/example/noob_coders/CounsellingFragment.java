@@ -139,7 +139,7 @@ public class CounsellingFragment extends Fragment {
         String insert_fields ="";
         for(int i =0;i<fields.size();i++)
         {
-            insert_fields = insert_fields + fields.get(i)+", ";
+            insert_fields = insert_fields + fields.get(i)+",";
         }
         userFields.put("Fields",insert_fields);
 
