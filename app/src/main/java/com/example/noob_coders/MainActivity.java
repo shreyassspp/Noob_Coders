@@ -65,6 +65,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new ProjectsFragment()).commit();
                 break;
+
+            case R.id.nav_sign_out:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                finish();
+                break;
+
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;}
