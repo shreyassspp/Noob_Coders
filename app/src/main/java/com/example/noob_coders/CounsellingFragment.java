@@ -24,6 +24,7 @@ public class CounsellingFragment extends Fragment {
     // for our array list and swipe deck.
     private SwipeDeck cardStack;
     private ArrayList<CourseModal> courseModalArrayList;
+    private ArrayList<String> fields;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,6 +35,7 @@ public class CounsellingFragment extends Fragment {
 
         // on below line we are initializing our array list and swipe deck.
         courseModalArrayList = new ArrayList<>();
+        fields = new ArrayList<>();
         cardStack = (SwipeDeck) rootView.findViewById(R.id.swipe_deck);
 
         // on below line we are adding data to our array list.
@@ -59,7 +61,9 @@ public class CounsellingFragment extends Fragment {
 
             @Override
             public void cardSwipedRight(int position) {
-                // on card swipe right we are displaying a toast message.
+                // on card swipe right we are displaying a toast message and add coursename to array list.
+                CourseModal currentCourseModel = (CourseModal) adapter.getItem(position);
+                fields.add(currentCourseModel.getCourseName());
                 Toast.makeText(getActivity(), "Card Swiped Right", Toast.LENGTH_SHORT).show();
             }
 
@@ -67,6 +71,7 @@ public class CounsellingFragment extends Fragment {
             public void cardsDepleted() {
                 // this method is called when no card is present
                 Toast.makeText(getActivity(), "No more courses present", Toast.LENGTH_SHORT).show();
+                Log.v("arrayCheck","fields: " + fields);
             }
 
             @Override
