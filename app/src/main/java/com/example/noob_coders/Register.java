@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -89,9 +90,11 @@ public class Register extends AppCompatActivity {
                 {
 
                     Map<String,Object> user = new HashMap<>();
+                    String fields ="";
                     user.put("Full Name",m_name);
                     user.put("E-Mail",memail);
                     user.put("PhoneNumber",m_phone);
+                    user.put("Fields",fields);
 
                     db.collection("user")
                             .add(user)
