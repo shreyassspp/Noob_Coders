@@ -20,6 +20,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 
 public class CommunityFragment extends Fragment {
@@ -99,8 +101,37 @@ public class CommunityFragment extends Fragment {
 
     }
 
+    //Fetches the Email of Users for a Particular Field and stores them in an ArrayList.
     private void fetchUsers(String field)
     {
          Log.v("DataCheck",field);
+
+         ArrayList<String> users_field = new ArrayList<>(); //To store the list of the users.
+
+        db.collection(field)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull  Task<QuerySnapshot> task) {
+
+                        if (task.isSuccessful()){
+
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                users_field.add(document.get("E-Mail").toString());
+                            }
+                            //Logging the Data to check if received properly.
+                            Set<String> s = new LinkedHashSet<String>(users_field);
+
+                            Log.v("ListOfUsers",  " The Field is "+field+" The List Of Users are " + s);
+                            //Logging the Data to check if received properly.
+
+                        }else {
+
+                            Toast.makeText(getActivity(),"Failed",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
     }
-}
+
+    }
