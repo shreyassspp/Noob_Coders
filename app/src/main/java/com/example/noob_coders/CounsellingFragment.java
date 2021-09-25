@@ -1,5 +1,6 @@
 package com.example.noob_coders;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -82,6 +83,30 @@ public class CounsellingFragment extends Fragment {
                 CourseModal currentCourseModel = (CourseModal) adapter.getItem(position);
                 fields.add(currentCourseModel.getCourseName());
                 Toast.makeText(getActivity(), "Card Swiped Right", Toast.LENGTH_SHORT).show();
+
+                Map<String,Object> user = new HashMap<>();
+
+                FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    String email = user1.getEmail();
+                    user.put("E-Mail",email);
+
+                    db.collection(currentCourseModel.getCourseName())
+                            .add(user)
+                            .addOnSuccessListener(documentReference -> {
+                                Toast.makeText(getActivity(),"User Registered Successfully for " + currentCourseModel.getCourseName(),
+                                        Toast.LENGTH_SHORT).show();
+                            }).addOnFailureListener(e -> {
+
+                        Toast.makeText(getActivity(),"Error Occured " , Toast.LENGTH_SHORT).show();
+
+                    });
+                }
+                else
+                {
+                    Toast.makeText(getActivity(),"Error Occured ", Toast.LENGTH_SHORT).show();
+                }
+
             }
 
             @Override
@@ -121,6 +146,8 @@ public class CounsellingFragment extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String email = user.getEmail();
+
+            Log.v("CheckName","Name of User is " + email);
 
             db.collection("user").whereEqualTo("E-Mail",email).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
