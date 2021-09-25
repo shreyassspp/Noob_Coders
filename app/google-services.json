@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "13233687895",
+    "project_id": "noob-coders-9c9fb",
+    "storage_bucket": "noob-coders-9c9fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13233687895:android:78fe5aa4444e2ed36a8212",
+        "android_client_info": {
+          "package_name": "com.example.noob_coders"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "13233687895-rm0ce7mq4b9oka2g66vbhf72n8udahpq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk2MElFVZSOqKRrzew0gG7P-fsDtdeweI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "13233687895-rm0ce7mq4b9oka2g66vbhf72n8udahpq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
