@@ -54,8 +54,13 @@ public class CommunityFragment extends Fragment {
         Log.v("Returned","Check");
 
         displayList.add(new Profile("dheer.samtani@gmail.com","Android Development"));
-        displayList.add(new Profile("shreyas.pakhare1@gmail.com","Finance"));
-        displayList.add(new Profile("sgkrish20002@gmail.com","Machine Learning"));
+        displayList.add(new Profile("shreyas.pakhare1@gmail.com","Android Development"));
+        displayList.add(new Profile("duatejas@gmail.com","Android Development"));
+
+        displayList.add(new Profile("dheer.samtani@gmail.com","Finance"));
+        displayList.add(new Profile("duatejas@gmail.com","Finance"));
+
+        displayList.add(new Profile("sgkrish20002@gmail.com","Finance"));
 
 
         ProfileAdapter adapter = new ProfileAdapter(getActivity(),displayList);
