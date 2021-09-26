@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_white_gradient"
+    android:layout_height="88dp">
+
+    <ImageView
+        android:id="@+id/user_profile_pic"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:background="#FFF7DA"
+        android:src="@drawable/ic_baseline_perm_identity_24" />
+
+    <LinearLayout
+        android:id="@+id/text_container"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_vertical"
+        android:layout_toRightOf="@id/user_profile_pic"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        >
+
+        <TextView
+            android:id="@+id/field_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            tools:text="Android Development" />
+
+        <TextView
+            android:id="@+id/email_id_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="xyz@gmail.com" />
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
